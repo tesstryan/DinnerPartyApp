@@ -1,0 +1,36 @@
+<h1>Editing Chef #<%= @chef.id %></h1>
+
+
+<%= form_tag(chef_url(@chef), method: 'patch') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @chef.name %>
+  </div>
+
+  <div>
+    <%= label_tag :image_url %><br />
+    <%= text_field_tag :image_url, @chef.image_url %>
+  </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_area_tag :description, @chef.description %>
+  </div>
+
+  <div>
+    <%= label_tag :celeb_name %><br />
+    <%= text_field_tag :celeb_name, @chef.celeb_name %>
+  </div>
+
+  <div>
+    <%= label_tag :celeb_url %><br />
+    <%= text_field_tag :celeb_url, @chef.celeb_url %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Chef" %>
+  </div>
+
+<% end %>

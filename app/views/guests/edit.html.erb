@@ -1,0 +1,27 @@
+<h1>Editing Guest #<%= @guest.id %></h1>
+
+
+<%= form_tag(guest_url(@guest), method: 'patch') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @guest.name %>
+  </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_area_tag :description, @guest.description %>
+  </div>
+
+  <div>
+    <%= label_tag :dinner_id, "What dinners can you come to?" %><br />
+    <% dinners = Dinner.all.order(:date) %>
+    <%= select_tag "dinner_id",
+              options_from_collection_for_select(dinners, :id, :date), :multiple => true %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update Guest" %>
+  </div>
+
+<% end %>

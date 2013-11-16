@@ -1,0 +1,21 @@
+<h1 class="h1_cursive">Editing Attendee #<%= @attendee.id %></h1>
+
+
+<%= form_tag(attendee_url(@attendee), method: 'patch') do %>
+
+  <div>
+    <%= label_tag :dinner_id %><br />
+    <%= number_field_tag :dinner_id, @attendee.dinner_id %>
+  </div>
+
+  <div>
+    <%= label_tag :guest_id %><br />
+    <%= number_field_tag :guest_id, @attendee.guest_id %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Update Attendee" %>
+  </div>
+
+<% end %>

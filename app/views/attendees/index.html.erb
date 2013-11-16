@@ -1,0 +1,30 @@
+<h1>Attendees</h1>
+
+<p><%= link_to 'Add a New Attendee', new_attendee_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dinner</th>
+      <th>Guest</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @attendees.each do |attendee| %>
+    <tr>
+      <td><%= attendee.dinner_id %></td>
+      <td><%= attendee.guest_id %></td>
+  
+      <td><%= link_to 'Show', attendee_url(attendee) %></td>
+      <td><%= link_to 'Edit', edit_attendee_url(attendee) %></td>
+      <td><%= link_to 'Destroy', attendee_url(attendee), method: 'delete', data: { confirm: "Do you really want to delete this attendee?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

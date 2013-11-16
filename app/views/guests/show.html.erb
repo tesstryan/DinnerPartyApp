@@ -1,0 +1,26 @@
+<h1>Guest #<%= @guest.id %></h1>
+
+<p>
+  <b>Name:</b>
+  <%= @guest.name %>
+</p>
+
+<p>
+  <b>Attending dinners:</b>
+  <% attendees = Attendee.where(guest_id: @guest.id ) %>
+
+  <% attendees.each do |attendee| %>
+  <ul>
+      <% if Dinner.find(attendee.dinner_id).present? %>
+         <li><%= Dinner.find(attendee.dinner_id).date %>
+      <% else %>
+          <%= @guest.name %> is not signed up to attend any dinners yet. </li>
+      <% end %></ul>
+    <% end %>
+
+</p>
+
+
+
+
+

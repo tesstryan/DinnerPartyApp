@@ -1,0 +1,27 @@
+<h1>New Guest</h1>
+
+
+<%= form_tag(guests_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_area_tag :description %>
+  </div>
+
+  <div>
+    <%= label_tag :dinner_id, "What dinners can you come to?" %><br />
+    <% dinners = Dinner.all.order(:date) %>
+    <%= select_tag "dinner_id",
+              options_from_collection_for_select(dinners, :id, :date), :multiple => true %>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Guest" %>
+  </div>
+<% end %>

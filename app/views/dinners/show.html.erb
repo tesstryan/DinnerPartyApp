@@ -1,0 +1,55 @@
+<div="container">
+
+<h1 class="h1_cursive"><%= @dinner.date %></h1>
+
+<p>
+  <b>Location:</b>
+  <%= @dinner.location %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @dinner.date %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @dinner.time %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @dinner.details %>
+</p>
+
+<p>
+  <b>Chef:</b>
+      <% if Chef.find_by(id: @dinner.chef_id).present?  %>
+        <%= Chef.find_by(id: @dinner.chef_id).name %>
+      <% else %>
+        Chef spot has not been taken yet, <%= link_to "sign up for this date", edit_dinner_url(@dinner.id)  %>!
+      <% end %>
+</p>
+
+<p>
+  <b>Guest List:</b>
+    <% attendees = Attendee.where(dinner_id: @dinner.id ) %>
+
+    <% attendees.each do |attendee| %>
+    <ul>
+        <% if Guest.find(attendee.guest_id).present? %>
+           <li><%= Guest.find_by(id: attendee.guest_id).name %></li>
+        <% end %></ul>
+
+    <% end %>
+
+</p>
+
+
+<%= link_to "Sign up to be a guest at this dinner", new_guest_url %> |
+<%= link_to 'Edit this dinner date', edit_dinner_url(@dinner.id) %> |
+<%= link_to 'Delete this date', dinner_url(@dinner.id), method: 'delete', data: { confirm: "Do you really want to delete this dinner?" } %></td>
+
+</div>
+
+

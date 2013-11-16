@@ -1,0 +1,30 @@
+<div="container">
+
+<h1>New Chef</h1>
+
+
+<%= form_tag(chefs_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <%= label_tag :image_url %><br />
+    <%= text_field_tag :image_url %>
+  </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_area_tag :description %>
+  </div>
+
+
+  <div>
+    <button type="button" class="btn btn-default">Create Chef</button>
+  </div>
+<% end %>
+
+</div>

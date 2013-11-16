@@ -1,0 +1,42 @@
+
+<h1 class="h1_cursive">New Dinner</h1>
+
+
+<%= form_tag(dinners_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :location %><br />
+    <%= text_field_tag :location %>
+  </div>
+
+  <div>
+    <%= label_tag :date %><br />
+    <input type="date" name="Date" >
+  </div>
+
+  <div>
+    <%= label_tag :time %><br />
+    <%= text_field_tag :time %>
+  </div>
+
+  <div>
+    <%= label_tag :details %><br />
+    <%= text_area_tag :details %>
+  </div>
+
+  <div>
+    <%= label_tag :chef_id %><br />
+    <% chefs = Chef.all.order(:name) %>
+    <%= select_tag "chef_id",
+              options_from_collection_for_select(chefs, :id, :name), :include_blank => "Choose the chef" %>
+  </div>
+
+  <div>
+    <p>Don't see the chef you need? <%= link_to "Add a new Chef!", new_chef_url %></p>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Dinner" %>
+  </div>
+<% end %>

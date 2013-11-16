@@ -1,0 +1,33 @@
+<div class="container">
+
+<h1 class="h1_cursive">Chefs</h1>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image url</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead> -->
+
+  <tbody>
+  <% @chefs.each do |chef| %>
+    <tr>
+        <td><img src="<%= chef.image_url %>" alt="<%= chef.name %>" class="img-rounded" width="100"</td> <br>
+      <td><%= chef.name %></td> <br>
+
+      <td><%= link_to 'Edit', edit_chef_url(chef) %></td>
+      <td><%= link_to 'Destroy', chef_url(chef), method: 'delete', data: { confirm: "Do you really want to delete this chef?" } %></td> <br>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to 'Add a New Chef', new_chef_url %></p>
+
+</div>

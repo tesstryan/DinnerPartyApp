@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+  background: url('/assets/tree_bark.png');
+}
+
+.homepage_header {
+  font-family: 'Pacifico', cursive;
+  font-size: 70px;
+  text-align: center;
+  color: #b70508;
+  padding-top: 200px;
+}
+
+.homepage_links {
+  font-family: 'Sintony', sans-serif;
+  text-align: center;
+  color: #b70508;
+  padding-top: 15px;
+  font-size: 17px;
+  text-decoration: none;
+  }
+
+  a.homepage_links:hover {
+    background: #94E899;
+    text-decoration: none !important
+  }
+
+ .h1_cursive {
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  color: #b70508;
+  text-decoration: transparent;
+  }
+
+.dinner_table {
+  font-family: 'Sintony', sans-serif;
+  }
+
+.dinner_table th {
+  font-family: 'Pacifico', cursive;
+  color: #b70508;
+  font-size: 25px;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-bottom: 40px;
+  text-align: left;
+  width: auto;
+}
+
+.dinner_table td {
+  padding-left: 10px;
+  padding-bottom: 40px;
+}

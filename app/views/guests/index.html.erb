@@ -1,0 +1,30 @@
+<h1>Guests</h1>
+
+<p><%= link_to 'Add a New Guest', new_guest_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @guests.each do |guest| %>
+    <tr>
+      <td><%= guest.name %></td>
+      <td><%= guest.description %></td>
+  
+      <td><%= link_to 'Show', guest_url(guest) %></td>
+      <td><%= link_to 'Edit', edit_guest_url(guest) %></td>
+      <td><%= link_to 'Destroy', guest_url(guest), method: 'delete', data: { confirm: "Do you really want to delete this guest?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

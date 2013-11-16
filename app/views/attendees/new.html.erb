@@ -1,0 +1,21 @@
+<h1>New Attendee</h1>
+
+
+<%= form_tag(attendees_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :dinner_id %><br />
+    <%= number_field_tag :dinner_id %>
+  </div>
+
+  <div>
+    <%= label_tag :guest_id %><br />
+    <%= number_field_tag :guest_id %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Attendee" %>
+  </div>
+<% end %>

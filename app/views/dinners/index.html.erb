@@ -1,0 +1,41 @@
+<div class="container">
+
+
+  <table class="dinner_table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Details</th>
+        <th>Whose cooking?</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @dinners.each do |dinner| %>
+      <tr>
+        <td><%= link_to dinner.date, dinner_url(dinner) %></td>
+        <td><%= dinner.time %></td>
+        <td><%= dinner.details %></td>
+        <td>
+          <% if Chef.find_by(id: dinner.chef_id).present?  %>
+            <%= Chef.find_by(id: dinner.chef_id).name %>
+          <% else %>
+            No chef has picked this date yet.
+          <% end %>
+          </td>
+
+
+
+
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+    <br><p><%= link_to 'Add a New Dinner', new_dinner_url %></p>
+
+</div>
+

@@ -1,0 +1,45 @@
+<div class="container">
+
+<h1 class="h1_cursive">Editing <%= @dinner.date %> Dinner</h1>
+
+
+<%= form_tag(dinner_url(@dinner), method: 'patch') do %>
+
+  <div>
+    <%= label_tag :location %><br />
+    <%= text_field_tag :location, @dinner.location %>
+  </div>
+
+  <div>
+    <%= label_tag :date %><br />
+    <%= text_field_tag :date, @dinner.date %>
+  </div>
+
+  <div>
+    <%= label_tag :time %><br />
+    <%= text_field_tag :time, @dinner.time %>
+  </div>
+
+  <div>
+    <%= label_tag :details %><br />
+    <%= text_area_tag :details, @dinner.details %>
+  </div>
+
+<br>
+
+  <div>
+    <%= label_tag :chef_id %>
+    <% chefs = Chef.all.order(:name) %>
+    <%= select_tag :chef_id,
+          options_from_collection_for_select(chefs, :id, :name), :prompt => "Choose Chef" %>
+  </div>
+
+<br>
+
+  <div>
+   <%= submit_tag "Create Chef!" %>
+  </div>
+
+<% end %>
+
+</div>
